@@ -51,7 +51,7 @@ This project is a web-based restaurant billing system that allows users to manag
    ```
 5. View results in the console. Screenshots of each test are saved in the `screenshots` directory.
 
-## Application Screenshots
+## Project Screenshots
 
 ### 1. Order Page
 <img src="https://github.com/user-attachments/assets/f7cdffa1-f6da-49d6-ad0e-27af69d2c75e" alt="Order Page" width="600"/>
