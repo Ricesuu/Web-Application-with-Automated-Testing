@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Bill">
+    <meta name="keywords" content="Bill">
+    <meta name="author" content="Ivan Sim Zhong Cheng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Summary</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- ==================== HEADER SECTION ==================== -->
+    <header class="header">
+        <h1 id="restaurant-billing-system" class="main-title">Restaurant Billing System</h1>
+    </header>
+
+    <!-- ==================== BILL CONTAINER ==================== -->
+    <div class="bill-container">
+        <h1 class="bill-title">Bill Summary</h1>
+
+        <!-- ========== BILL TABLE SECTION ========== -->
+        <table class="bill-table">
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <!-- Table Body - Order Items -->
+            <tbody id="bill-items"></tbody>
+
+            <!-- Table Footer - Bill Summary -->
+            <tfoot id="bill-summary"></tfoot>
+        </table>
+
+        <!-- ========== ACTION BUTTONS ========== -->
+        <div class="bill-actions">
+            <button class="back-btn" onclick="window.location.href='orderSummary.html'">Back to Order</button>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Constants
+        const TAX_RATE = 0.06;
+        const DISCOUNT_RATE = 0.5;
+
+        // Initialize the bill when page loads
+        window.onload = function() {
+            const orderData = JSON.parse(localStorage.getItem('orderData'));
+            const isDiscounted = localStorage.getItem('isDiscounted') === 'true';
+            
+            displayOrderItems(orderData);
+            displayBillSummary(calculateTotals(orderData, isDiscounted));
+            clearLocalStorage();
+        };
+
+        // Display order items in the table
+        function displayOrderItems(orderData) {
+            const billItems = document.getElementById('bill-items');
+            let subtotal = 0;
+
+            orderData.forEach(item => {
+                const total = item.price * item.quantity;
+                subtotal += total;
+
+                const row = document.createElement('tr');
+                row.className = item.quantity === 0 ? 'zero-quantity' : '';
+                row.innerHTML = `
+                    <td>${item.itemName}</td>
+                    <td>${item.quantity}</td>
+                    <td>RM ${item.price.toFixed(2)}</td>
+                    <td>RM ${total.toFixed(2)}</td>
+                `;
+                billItems.appendChild(row);
+            });
+
+            return subtotal;
+        }
+
+        // Calculate all totals for the bill
+        function calculateTotals(orderData, isDiscounted) {
+            const subtotal = orderData.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = isDiscounted ? subtotal * DISCOUNT_RATE : 0;
+            const discountedSubtotal = subtotal - discount;
+            const tax = discountedSubtotal * TAX_RATE;
+            const grandTotal = discountedSubtotal + tax;
+
+            return {
+                subtotal,
+                discount,
+                tax,
+                grandTotal,
+                isDiscounted
+            };
+        }
+
+        // Display the bill summary
+        function displayBillSummary(totals) {
+            document.getElementById('bill-summary').innerHTML = `
+                <tr class="summary-row">
+                    <td colspan="3">Subtotal:</td>
+                    <td name="subtotal">RM ${totals.subtotal.toFixed(2)}</td>
+                </tr>
+                ${totals.isDiscounted ? `
+                    <tr class="summary-row">
+                        <td colspan="3">Discount (50%):</td>
+                        <td name="discount">-RM ${totals.discount.toFixed(2)}</td>
+                    </tr>
+                ` : ''}
+                <tr class="summary-row">
+                    <td colspan="3">Tax (6%):</td>
+                    <td name="tax">RM ${totals.tax.toFixed(2)}</td>
+                </tr>
+                <tr class="summary-row total">
+                    <td colspan="3">Grand Total:</td>
+                    <td name="total">RM ${totals.grandTotal.toFixed(2)}</td>
+                </tr>
+            `;
+        }
+
+        // Clear the local storage
+        function clearLocalStorage() {
+            localStorage.removeItem('orderData');
+            localStorage.removeItem('isDiscounted');
+        }
+    </script>
+</body>
+</html>

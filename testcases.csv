@@ -1,0 +1,11 @@
+test-name,peach-tea,mineral-water,banana-fritters,abc,fried-chicken-wings,braised-beef-noodle,nasi-lemak-curry-chicken,mee-goreng-mamak,discount,expected_subtotal,expected_discount,expected_tax,expected_total
+Normal Orders,1,1,0,0,2,1,1,0,FALSE,58.59,0,3.52,62.11
+Empty Orders,0,0,0,0,0,0,0,0,FALSE,0,0,0,0
+Discounted Empty Orders,0,0,0,0,0,0,0,0,TRUE,0,0,0,0
+Single Item Order,0,0,0,1,0,0,0,0,FALSE,9.9,0,0.59,10.49
+All Items Orders,1,1,1,1,1,1,1,1,FALSE,85.09,0,5.11,90.2
+Single Item Bulk Order,0,0,0,0,0,0,50,0,FALSE,899.5,0,53.97,953.47
+Negative Value Orders,1,1,-1,1,0,2,0,-2,FALSE,43.6,0,2.62,46.22
+Mixed Quantity Order,20,0,0,15,0,6,5,3,FALSE,462.85,0,27.77,490.62
+Discounted Orders,2,2,0,0,3,0,3,1,TRUE,117.57,58.79,3.53,62.31
+All Item Bulk Orders ,50,50,50,50,50,100,100,100,FALSE,6739,0,404.34,7143.34

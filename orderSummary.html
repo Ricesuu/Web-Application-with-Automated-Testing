@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Order Summary">
+    <meta name="keywords" content="Order">
+    <meta name="author" content="Ivan Sim Zhong Cheng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Billing System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- ==================== HEADER SECTION ==================== -->
+    <header class="header">
+        <h1 id="restaurant-billing-system" class="main-title">Restaurant Billing System</h1>
+    </header>
+    
+    <!-- ==================== MAIN CONTAINER ==================== -->
+    <main class="main-container">
+        <section class="order-section">
+            <div class="order-section-header">
+                <h2>Order Summary</h2>
+            </div>
+            
+            <!-- ==================== ORDER HEADER ==================== -->
+            <div class="order-header">
+                <div>Item</div>
+                <div>Name</div>
+                <div>Price</div>
+                <div>Quantity</div>
+                <div>Action</div>
+            </div>
+
+            <!-- ==================== ORDER ITEMS ==================== -->
+            <div id="order-items" class="order-items">
+                <!-- Order Item: Peach Tea -->
+                <div class="order-item" data-item-id="peach-tea" data-price="4.50">
+                    <div class="item-image">
+                        <img src="FoodImages/PeachTea.png" alt="Peach Tea">
+                    </div>
+                    <div class="item-name" title="Peach Tea">Peach Tea</div>
+                    <div class="price-value">RM 4.50</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="peach-tea-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Mineral Water -->
+                <div class="order-item" data-item-id="mineral-water" data-price="3.00">
+                    <div class="item-image">
+                        <img src="FoodImages/MineralWater.png" alt="Mineral Water">
+                    </div>
+                    <div class="item-name" title="Mineral Water">Mineral Water</div>
+                    <div class="price-value">RM 3.00</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="mineral-water-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Banana Fritters -->
+                <div class="order-item" data-item-id="banana-fritters" data-price="8.00">
+                    <div class="item-image">
+                        <img src="FoodImages/BananaFritters.png" alt="Banana Fritters">
+                    </div>
+                    <div class="item-name" title="Banana Fritters">Banana Fritters</div>
+                    <div class="price-value">RM 8.00</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="banana-fritters-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: ABC -->
+                <div class="order-item" data-item-id="abc" data-price="9.90">
+                    <div class="item-image">
+                        <img src="FoodImages/ABC.png" alt="ABC Ice Kacang">
+                    </div>
+                    <div class="item-name" title="ABC Ice Kacang">ABC Ice Kacang</div>
+                    <div class="price-value">RM 9.90</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="abc-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Fried Chicken Wings -->
+                <div class="order-item" data-item-id="fried-chicken-wings" data-price="10.00">
+                    <div class="item-image">
+                        <img src="FoodImages/FriedChickenWings.png" alt="Fried Chicken Wings">
+                    </div>
+                    <div class="item-name" title="Fried Chicken Wings">Fried Chicken Wings</div>
+                    <div class="price-value">RM 10.00</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="fried-chicken-wings-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Braised Beef Noodle -->
+                <div class="order-item" data-item-id="braised-beef-noodle" data-price="13.10">
+                    <div class="item-image">
+                        <img src="FoodImages/BraisedBeefNoodle.png" alt="Braised Beef Noodle">
+                    </div>
+                    <div class="item-name" title="Braised Beef Noodle">Braised Beef Noodle</div>
+                    <div class="price-value">RM 13.10</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="braised-beef-noodle-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Nasi Lemak with Curry Chicken -->
+                <div class="order-item" data-item-id="nasi-lemak-curry-chicken" data-price="17.99">
+                    <div class="item-image">
+                        <img src="FoodImages/NasiLemakwithCurryChicken.png" alt="Nasi Lemak with Curry Chicken">
+                    </div>
+                    <div class="item-name" title="Nasi Lemak with Curry Chicken">Nasi Lemak with Curry Chicken</div>
+                    <div class="price-value">RM 17.99</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="nasi-lemak-curry-chicken-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <!-- Order Item: Mee Goreng Mamak-->
+                <div class="order-item" data-item-id="mee-goreng-mamak" data-price="18.60">
+                    <div class="item-image">
+                        <img src="FoodImages/MeeGorengMamak.png" alt="Mee Goreng Mamak">
+                    </div>
+                    <div class="item-name" title="Mee Goreng Mamak">Mee Goreng Mamak</div>
+                    <div class="price-value">RM 18.60</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-value" name="mee-goreng-mamak-qty" min="0" placeholder="0" onchange="updateOrderQuantity(this)">
+                        <button class="quantity-btn" onclick="changeOrderQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="delete-btn" onclick="resetOrderItem(this)"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+            <!-- ==================== SUMMARY BUTTONS ==================== -->
+            <div class="summary-buttons">
+                <button class="calculate-button" name="calculate" onclick="submitOrder(false)">Calculate Bill</button>
+                <button class="calculate-button" name="calculate-discount" onclick="submitOrder(true)">Calculate Bill with 50% Discount</button>
+                <button class="cancel-order-btn" onclick="cancelOrder()">Cancel Order</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Function to update quantity
+        function updateOrderQuantity(input) {
+            const orderItem = input.closest('.order-item');
+            const price = parseFloat(orderItem.getAttribute('data-price'));
+            const value = Math.max(0, Math.floor(input.value) || 0);
+            
+            input.value = value || '';
+            orderItem.querySelector('.price-value').textContent = `RM ${price.toFixed(2)}`;
+        }
+        
+        // Function to reset order item
+        function resetOrderItem(button) {
+            const input = button.closest('.order-item').querySelector('.qty-value');
+            input.value = '';
+            updateOrderQuantity(input);
+        }
+        
+        // Function to change order quantity
+        function changeOrderQuantity(button, change) {
+            const input = button.closest('.order-item').querySelector('.qty-value');
+            const newQty = (parseInt(input.value) || 0) + change;
+            
+            if (newQty >= 0) {
+                input.value = newQty;
+                updateOrderQuantity(input);
+            }
+        }
+        
+        // Function to cancel entire order
+        function cancelOrder() {
+            document.querySelectorAll('.qty-value').forEach(input => {
+                input.value = '';
+                updateOrderQuantity(input);
+            });
+        }
+
+        // Function to submit order
+        function submitOrder(isDiscounted) {
+            // Get all order items
+            const orderItems = document.querySelectorAll('.order-item');
+            const orders = [];
+        
+            // Process each order item
+            for (let i = 0; i < orderItems.length; i++) {
+                const item = orderItems[i];
+                const quantity = parseInt(item.querySelector('.qty-value').value) || 0;
+        
+                const orderData = {
+                    itemId: item.getAttribute('data-item-id'),
+                    itemName: item.querySelector('.item-name').textContent,
+                    price: parseFloat(item.getAttribute('data-price')),
+                    quantity: quantity
+                };
+                orders.push(orderData);
+            }
+        
+            // Save to localStorage and redirect
+            localStorage.setItem('orderData', JSON.stringify(orders));
+            localStorage.setItem('isDiscounted', isDiscounted);
+            window.location.href = 'bill.html';
+        }
+    </script>
+</body>
+</html>

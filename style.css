@@ -1,0 +1,308 @@
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #1B2B59;
+}
+
+/* Header Section */
+.header {
+    padding: 20px;
+    background-color: #C0B387;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.main-title {
+    margin: 0;
+    font-size: 2em;
+    color: #ffffff;
+    flex: 1;
+}
+
+/* Layout */
+.main-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Order Section */
+.order-section {
+    background: #F5F3EC;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.order-section-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    font-size: 1.4em;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.order-header {
+    display: grid;
+    grid-template-columns: 130px 3fr 1fr 1.2fr 0.5fr;
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+    font-weight: 600;
+    gap: 25px;
+    text-align: center;
+    font-size: 1.2em;
+    letter-spacing: -0.2px;
+}
+
+.order-header > div:nth-child(2) {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 130px 3fr 1fr 1.2fr 0.5fr;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    gap: 25px;
+    align-items: center;
+}
+
+.item-image {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-name {
+    font-size: 1em;
+    font-weight: 500;
+    padding-right: 10px;
+    padding-left: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
+}
+
+.price-value {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    padding-left: 10px;
+}
+
+/* Quantity Controls */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-left: 15px;
+}
+
+.quantity-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    padding: 4px 8px;
+    font-size: 14px;
+    min-width: 28px;
+    height: 28px;
+}
+
+.quantity-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Input Styles */
+input[type="number"] {
+    width: 40px;
+    padding: 4px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    height: 28px;
+}
+
+input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.order-item .qty-value {
+    width: 40px;
+    height: 28px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+/* Summary Buttons */
+.summary-buttons {
+    position: sticky;
+    bottom: 0;
+    background-color: transparent;
+    padding: 10px;
+    border-top: 3px solid #ddd;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.calculate-button, .cancel-order-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.calculate-button {
+    background-color: #4ead86;
+}
+
+.calculate-button:hover, .cancel-order-btn:hover {
+    opacity: 0.9;
+}
+
+.cancel-order-btn {
+    background-color: #e74c3c;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: transparent;
+    color: #666;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    transition: color 0.2s ease;
+    margin: 0 auto;
+    padding-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: transparent;
+    color: #dc3545;
+}
+
+/* ==================== BILL PAGE STYLES ==================== */
+/* Bill Container */
+.bill-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #F5F3EC;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.bill-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+/* Bill Table Styles */
+.bill-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bill-table th {
+    background-color: #C0B387;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #B0A377;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.bill-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #D5CEB1;
+    font-size: 1em;
+}
+
+/* Table Summary Styles */
+.bill-table tfoot td {
+    border-top: 2px solid #B0A377;
+    font-size: 1em;
+    padding: 15px;
+}
+
+.bill-table .summary-row.total td {
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #D5CEB1;
+}
+
+/* Zero Quantity Items */
+.bill-table .zero-quantity {
+    color: #696969;
+    background-color: #EDEAE0;
+}
+
+/* Action Buttons */
+.bill-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.back-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    background: #3498db;
+    color: white;
+}
+
+.back-btn:hover {
+    opacity: 0.9;
+}
