@@ -51,6 +51,18 @@ This project is a web-based restaurant billing system that allows users to manag
    ```
 5. View results in the console. Screenshots of each test are saved in the `screenshots` directory.
 
+## Application Screenshots
+
+### 1. Order Page
+<img src="https://github.com/user-attachments/assets/f7cdffa1-f6da-49d6-ad0e-27af69d2c75e" alt="Order Page" width="600"/>
+
+### 2. Bill Page
+<img src="https://github.com/user-attachments/assets/ede50894-1771-405e-b844-28b575a6be98" alt="Bill Page" width="600"/>
+
+### 3. Selenium Example
+<img src="https://github.com/user-attachments/assets/cb8fe21e-e7bf-4748-b95e-6e04a757257f" alt="Selenium Example" width="600"/>
+
+
 ## Disclaimer
 This project was originally completed as an assignment and has been uploaded to GitHub at a later date due to limited OneDrive storage. As a result, the commit history may not accurately reflect the development process, and there may be only a few commits for the project.
 
